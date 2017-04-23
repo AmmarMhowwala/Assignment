@@ -1,0 +1,61 @@
+USE [Practice]
+GO
+/****** Object:  StoredProcedure [dbo].[FetchEmployees]    Script Date: 23-04-2017 22:21:13 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[FetchEmployees] 
+
+AS
+BEGIN
+	
+	select * from Employee 
+END
+
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 23-04-2017 22:21:13 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[Employee_id] [int] IDENTITY(1,1) NOT NULL,
+	[First_name] [nvarchar](50) NULL,
+	[Last_name] [nvarchar](50) NULL,
+	[Salary] [money] NULL,
+	[Joining_date] [datetime] NULL,
+	[Department] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[Employee_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET IDENTITY_INSERT [dbo].[Employee] ON 
+
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (2, N'John', N'Abraham', 1000000.0000, CAST(N'2013-01-01 00:00:00.000' AS DateTime), N'Banking')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (3, N'Michael', N'Clarke', 800000.0000, CAST(N'2013-01-01 00:00:00.000' AS DateTime), N'Insurance')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (4, N'Roy', N'Thomas', 700000.0000, CAST(N'2013-02-01 00:00:00.000' AS DateTime), N'Banking')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (5, N'Tom', N'Jose', 600000.0000, CAST(N'2013-02-01 00:00:00.000' AS DateTime), N'Insurance')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (6, N'Jerry', N'Pinto', 650000.0000, CAST(N'2013-02-01 00:00:00.000' AS DateTime), N'Insurance')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (7, N'Philip', N'Mathew', 750000.0000, CAST(N'2013-01-01 00:00:00.000' AS DateTime), N'Services')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (8, N'TestName1', N'123', 650000.0000, CAST(N'2013-01-01 00:00:00.000' AS DateTime), N'Services')
+GO
+INSERT [dbo].[Employee] ([Employee_id], [First_name], [Last_name], [Salary], [Joining_date], [Department]) VALUES (9, N'TestName2', N'Lname%', 600000.0000, CAST(N'2013-02-01 00:00:00.000' AS DateTime), N'Insurance')
+GO
+SET IDENTITY_INSERT [dbo].[Employee] OFF
+GO
